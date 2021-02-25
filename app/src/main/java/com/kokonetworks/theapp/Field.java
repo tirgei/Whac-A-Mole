@@ -22,7 +22,6 @@ class Field extends LinearLayout {
 
     private boolean isInGameSession = false;
     private SquareButton lastClickedButton = null;
-    private SquareButton lastActiveButton = null;
 
     private final int ACTIVE_TAG_KEY = 873374234;
 
@@ -72,6 +71,8 @@ class Field extends LinearLayout {
 
     public void startGame() {
         isInGameSession = true;
+        lastClickedButton = null;
+
         resetScore();
         resetCircles();
         for (SquareButton squareButton : circles) {
@@ -126,8 +127,6 @@ class Field extends LinearLayout {
             currentActive.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.hole_active));
             currentActive.setTag(ACTIVE_TAG_KEY, true);
             currentCircle = index;
-
-//            lastActiveButton = currentActive;
         });
     }
 
