@@ -43,8 +43,14 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onGameEnded(int score) {
-            btnStart.setVisibility(View.VISIBLE);
-            showScore(score);
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    btnStart.setVisibility(View.VISIBLE);
+                    showScore(score);
+                }
+            });
         }
 
         @Override

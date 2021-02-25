@@ -21,6 +21,8 @@ class Field extends LinearLayout {
     private Mole mole;
 
     private boolean isInGameSession = false;
+    private SquareButton lastClickedButton = null;
+    private SquareButton lastActiveButton = null;
 
     private final int ACTIVE_TAG_KEY = 873374234;
 
@@ -77,15 +79,14 @@ class Field extends LinearLayout {
                 @Override
                 public void onClick(View view) {
                     if (!isInGameSession) return;
+                    lastClickedButton = squareButton;
 
                     boolean active = (boolean) view.getTag(ACTIVE_TAG_KEY);
                     if (active) {
                         score += mole.getCurrentLevel() * 2;
                         listener.updateScore(score);
                     } else {
-                        isInGameSession = false;
-                        mole.stopHopping();
-                        listener.onGameEnded(score);
+                        endGame();
                         squareButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.orange_oval));
                     }
                 }
@@ -94,6 +95,12 @@ class Field extends LinearLayout {
 
         mole = new Mole(this);
         mole.startHopping();
+    }
+
+    private void endGame() {
+        isInGameSession = false;
+        mole.stopHopping();
+        listener.onGameEnded(score);
     }
 
     public int getCurrentCircle() {
@@ -108,11 +115,19 @@ class Field extends LinearLayout {
     }
 
     public void setActive(int index) {
+        if (lastClickedButton != null && circles[getCurrentCircle()] != lastClickedButton) {
+            endGame();
+
+            return;
+        }
         mainHandler.post(() -> {
             resetCircles();
-            circles[index].setBackground(ContextCompat.getDrawable(getContext(), R.drawable.hole_active));
-            circles[index].setTag(ACTIVE_TAG_KEY, true);
+            SquareButton currentActive = circles[index];
+            currentActive.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.hole_active));
+            currentActive.setTag(ACTIVE_TAG_KEY, true);
             currentCircle = index;
+
+//            lastActiveButton = currentActive;
         });
     }
 
