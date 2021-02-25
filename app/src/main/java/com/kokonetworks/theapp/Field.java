@@ -80,6 +80,7 @@ class Field extends LinearLayout {
                     } else {
                         mole.stopHopping();
                         listener.onGameEnded(score);
+                        squareButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.orange_oval));
                     }
                 }
             });
