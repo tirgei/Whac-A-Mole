@@ -44,8 +44,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onGameEnded(int score) {
             btnStart.setVisibility(View.VISIBLE);
-            tvScore.setVisibility(View.VISIBLE);
-            tvScore.setText(String.format(getString(R.string.your_score), score));
+            showScore(score);
+        }
+
+        @Override
+        public void updateScore(int score) {
+            showScore(score);
         }
 
         @Override
@@ -53,4 +57,11 @@ public class MainActivity extends AppCompatActivity {
             tvLevel.setText(String.format(getString(R.string.level), level));
         }
     };
+
+    private void showScore(int score) {
+        if (tvScore.getVisibility() != View.VISIBLE) {
+            tvScore.setVisibility(View.VISIBLE);
+        }
+        tvScore.setText(String.format(getString(R.string.your_score), score));
+    }
 }

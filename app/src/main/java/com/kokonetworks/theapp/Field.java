@@ -76,6 +76,7 @@ class Field extends LinearLayout {
                     boolean active = (boolean) view.getTag(ACTIVE_TAG_KEY);
                     if (active) {
                         score += mole.getCurrentLevel() * 2;
+                        listener.updateScore(score);
                     } else {
                         mole.stopHopping();
                         listener.onGameEnded(score);
@@ -118,6 +119,8 @@ class Field extends LinearLayout {
 
     public interface Listener {
         void onGameEnded(int score);
+
+        void updateScore(int score);
 
         void onLevelChange(int level);
     }
