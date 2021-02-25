@@ -15,4 +15,4 @@ You can then import the project to your Android Studio and run it.
 
 ### Screenshots & Gameplay
 
-| <img src="art/screenshot.jpg" width="200"> | ![Gameplay](art/screen_recording.gif) |
+| <img src="art/screenshot.jpg" width="200"> | <img src="art/screen_recording.gif" width="200"> |
