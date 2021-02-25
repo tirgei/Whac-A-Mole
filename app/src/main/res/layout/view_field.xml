@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#004C0F"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole1"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"
+            />
+
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole2"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"/>
+
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole3"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole4"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp" />
+
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole5"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"/>
+
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole6"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole7"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp" />
+
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole8"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"/>
+
+        <com.kokonetworks.theapp.SquareButton
+            android:id="@+id/hole9"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/hole_inactive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+</LinearLayout>
