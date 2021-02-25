@@ -20,6 +20,8 @@ class Field extends LinearLayout {
     private int score;
     private Mole mole;
 
+    private boolean isInGameSession = false;
+
     private final int ACTIVE_TAG_KEY = 873374234;
 
     public Field(Context context) {
@@ -67,17 +69,21 @@ class Field extends LinearLayout {
     }
 
     public void startGame() {
+        isInGameSession = true;
         resetScore();
         resetCircles();
         for (SquareButton squareButton : circles) {
             squareButton.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    if (!isInGameSession) return;
+
                     boolean active = (boolean) view.getTag(ACTIVE_TAG_KEY);
                     if (active) {
                         score += mole.getCurrentLevel() * 2;
                         listener.updateScore(score);
                     } else {
+                        isInGameSession = false;
                         mole.stopHopping();
                         listener.onGameEnded(score);
                         squareButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.orange_oval));
